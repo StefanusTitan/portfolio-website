@@ -1,0 +1,34 @@
+{
+  "name": "portfolio-website",
+  "version": "1.0.0",
+  "description": "A modern portfolio website showcasing projects and skills.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  },
+  "keywords": [
+    "portfolio",
+    "nextjs",
+    "react",
+    "web",
+    "development"
+  ],
+  "author": "Stefanus Titan Elianto",
+  "license": "MIT",
+  "dependencies": {
+    "next": "^15.1.6",
+    "prettier": "^3.2.5",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-icons": "^5.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^9.20.0",
+    "eslint-config-next": "^15.1.6"
+  },
+  "packageManager": "yarn@1.22.22"
+}
