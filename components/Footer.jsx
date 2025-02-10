@@ -9,36 +9,61 @@ const Footer = () => {
           &copy; {new Date().getFullYear()} Stefanus Titan Elianto. All rights
           reserved.
         </p>
-        <p style={{ fontSize: "0.9rem", color: "#666", margin: "0.3rem 0" }}>
+        <p style={{ fontSize: "0.9rem", margin: "0.3rem 0" }}>
           Built with React & Next.js
         </p>
-        <div
-          style={{
-            marginTop: "0.5rem",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
+        <div className="social-links">
           <a
             href="https://github.com/StefanusTitan"
             target="_blank"
             rel="noopener noreferrer"
-            style={{ display: "flex", alignItems: "center", color: "#24292e" }}
           >
-            <FaGithub style={{ marginRight: "0.3rem" }} /> GitHub
+            <FaGithub /> GitHub
           </a>
-          <span style={{ margin: "0 0.5rem" }}>|</span>
+          <span>|</span>
           <a
             href="https://www.linkedin.com/in/stefanus-titan"
             target="_blank"
             rel="noopener noreferrer"
-            style={{ display: "flex", alignItems: "center", color: "#0A66C2" }}
           >
-            <FaLinkedin style={{ marginRight: "0.3rem" }} /> LinkedIn
+            <FaLinkedin /> LinkedIn
           </a>
         </div>
       </div>
+      <style jsx>{`
+        footer {
+          background: var(--card-bg);
+          color: var(--text);
+          text-align: center;
+          padding: 1rem 2rem;
+          border-top: 1px solid var(--shadow);
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+        }
+        .container {
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+        .social-links {
+          margin-top: 0.5rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.5rem;
+        }
+        .social-links a {
+          display: flex;
+          align-items: center;
+          color: var(--text);
+          text-decoration: none;
+          transition: color 0.2s ease;
+        }
+        .social-links a:hover {
+          color: #0070f3;
+        }
+      `}</style>
     </footer>
   );
 };

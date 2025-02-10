@@ -1,6 +1,10 @@
 import Link from "next/link";
+import { useTheme } from '../context/ThemeContext';
+import { FaMoon, FaSun } from 'react-icons/fa';
 
 const Header = () => {
+  const { darkMode, toggleDarkMode } = useTheme();
+  
   return (
     <header className="header">
       <div className="container">
@@ -11,17 +15,23 @@ const Header = () => {
               <Link href="/">Home</Link>
             </li>
             <li className="nav-item">
-              <Link href="/about">About</Link>
+              <Link href="/about">About Me</Link>
             </li>
             <li className="nav-item">
               <Link href="/projects">Projects</Link>
             </li>
           </ul>
         </nav>
+        <button 
+          onClick={toggleDarkMode}
+          className="theme-toggle"
+        >
+          {darkMode ? <FaSun /> : <FaMoon />}
+        </button>
       </div>
       <style jsx>{`
         header {
-          background: linear-gradient(90deg, #e0f7fa, #b2ebf2);
+          background: var(--header-bg);
           width: 100%;
         }
         .container {
@@ -35,6 +45,7 @@ const Header = () => {
         h1 {
           margin: 0;
           padding-left: 1rem;
+          color: var(--text);
         }
         nav {
           flex: 1;
@@ -60,17 +71,29 @@ const Header = () => {
         .nav-item:hover {
           transform: scale(1.05);
           text-shadow: 0 0 8px #90d5e2;
-          color: #f5f5f5;
+          color: var(--text);
         }
         nav :global(a) {
-          color: inherit;
+          color: var(--text);
           text-decoration: none;
           padding: 0.5rem 1rem; /* Added padding to increase clickable area */
           display: block; /* Makes the entire area clickable */
         }
         nav :global(a:hover) {
           text-decoration: none;
-          color: #f5f5f5;
+          color: var(--text);
+        }
+        .theme-toggle {
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 0.5rem;
+          color: var(--text);
+          font-size: 1.2rem;
+          transition: transform 0.2s ease;
+        }
+        .theme-toggle:hover {
+          transform: scale(1.1);
         }
       `}</style>
     </header>
