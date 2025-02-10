@@ -17,15 +17,13 @@ const Home = () => {
           <h2>Featured Projects</h2>
           <ul>
             <li>
-              <a href="/projects/project1">MobileNetV2 + SVM for Melanoma Classification</a> - A research project which combines the strong feature extraction of CNN with SVM efficiency.
+              <a href="/projects/project1">MobileNetV2 + SVM for Melanoma Classification</a> - My thesis topic which combines the strong feature extraction of CNN with SVM efficiency to classify melanoma and nonmelanoma images.
             </li>
             <li>
-              <a href="/projects/project2">Project 2</a> - A brief description
-              of project 2.
+              <a href="/projects/project2">ToDo App</a> - A personal project of a web app to create a To-Do list utilizing React , Next.js, Express, and Sequelize.
             </li>
             <li>
-              <a href="/projects/project3">Project 3</a> - A brief description
-              of project 3.
+              <a href="/projects/project3">HaBaBox</a> - A project to clone a popular hotel system, BoBoBox, using classic HTML, JavaScript, and CSS along with Node.js.
             </li>
           </ul>
         </section>

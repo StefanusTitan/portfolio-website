@@ -9,6 +9,9 @@ const Footer = () => {
           &copy; {new Date().getFullYear()} Stefanus Titan Elianto. All rights
           reserved.
         </p>
+        <p style={{ fontSize: "0.9rem", color: "#666", margin: "0.3rem 0" }}>
+          Built with React & Next.js
+        </p>
         <div
           style={{
             marginTop: "0.5rem",
