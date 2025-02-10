@@ -29,6 +29,11 @@ const Home = () => {
             </li>
           </ul>
         </section>
+        <p style={{ textAlign: "center", marginTop: "1rem" }}>
+          <a href="/projects" style={{ fontSize: "1.2rem", textDecoration: "underline" }}>
+            View More Projects
+          </a>
+        </p>
       </main>
       <Footer />
     </div>
