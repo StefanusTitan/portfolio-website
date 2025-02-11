@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import styles from "../styles/Home.module.css";
 
 const Projects = () => {
   const projectList = [
@@ -22,9 +23,9 @@ const Projects = () => {
   ];
 
   return (
-    <div>
+    <div className={styles.container}>
       <Header />
-      <main style={{ padding: "2rem 5rem" }}>
+      <main className={`${styles.main} ${styles.contentWidth}`}>
         <h1>My Projects</h1>
         <ul>
           {projectList.map((project, index) => (

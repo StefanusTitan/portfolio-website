@@ -7,7 +7,7 @@ const About = () => {
   return (
     <div className={styles.container}>
       <Header />
-      <main className={styles.main} style={{ padding: "2rem 5rem" }}>
+      <main className={`${styles.main} ${styles.contentWidth}`}>
         <h1>About Me</h1>
         <p style={{ textAlign: "justify" }}>
           Welcome to my portfolio! I am a passionate developer with a background
