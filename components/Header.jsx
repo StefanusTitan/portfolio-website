@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useTheme } from '../context/ThemeContext';
 import { FaMoon, FaSun } from 'react-icons/fa';
+import { FaCode } from 'react-icons/fa'; // Import the code icon
 
 const Header = () => {
   const { darkMode, toggleDarkMode } = useTheme();
@@ -8,7 +9,9 @@ const Header = () => {
   return (
     <header className="header">
       <div className="container">
-        <h1>My Portfolio</h1>
+        <h1>
+          <FaCode style={{ marginRight: '0.5rem' }} /> My Portfolio
+        </h1>
         <nav>
           <ul>
             <li className="nav-item">
@@ -46,6 +49,8 @@ const Header = () => {
           margin: 0;
           padding-left: 1rem;
           color: var(--text);
+          display: flex;
+          align-items: center;
         }
         nav {
           flex: 1;
