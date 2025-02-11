@@ -17,8 +17,7 @@ const About = () => {
         </p>
         <h2>Background</h2>
         <p style={{ textAlign: "justify" }}>
-          I have a degree in Informatics with a GPA of 3.74 and have worked on various
-          projects that have honed my skills in front-end and back-end
+          I have worked on various projects that have honed my skills in front-end and back-end
           development. My journey in tech began with a fascination of technology and coding which 
           evolved into a career where I can express my creativity and
           problem-solving abilities.
@@ -28,6 +27,19 @@ const About = () => {
           my skills and learn new technologies to stay current in the ever
           changing landscape of web development and in the exponential development of AI. 
           I am excited to see where my journey in tech will take me next!
+        </p>
+        <h2>Education</h2>
+        <p style={{ textAlign: "justify" }}>
+        I am currently an undegraduate in Institut Teknologi Harapan Bangsa (ITHB) pursuing a degree in Informatics with a GPA of 3.74 
+        and I have taken various courses in web development, project management, Artificial Intelligence, Machine Learning, and Deep Learning. 
+        I have also taken courses in Java, Python, Go, and SQL. Other than that, I also have taken courses in soft skills like 
+        effective communication, team collaboration, adaptability, problem-solving, and time management.
+        </p>
+        <h2>Interests</h2>
+        <p style={{ textAlign: "justify" }}>
+          I am passionate about web development, Artificial Intelligence, Machine Learning, and Deep Learning. 
+          I am always looking for new challenges and opportunities to grow as a developer. 
+          I am also interested in learning new technologies and frameworks to stay current in the ever changing landscape of web development and AI.
         </p>
         <h2>Skills</h2>
         <ul>

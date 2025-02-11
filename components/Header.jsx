@@ -41,26 +41,24 @@ const Header = () => {
           display: flex;
           justify-content: space-between;
           align-items: center;
+          max-width: 1200px;
           width: 100%;
-          margin: 0;
-          padding: 0 2rem;
+          margin: 0 auto;
+          padding: 0 1rem;
         }
         h1 {
           margin: 0;
-          padding-left: 1rem;
           color: var(--text);
           display: flex;
           align-items: center;
         }
         nav {
-          flex: 1;
           display: flex;
           justify-content: center;
-          padding-right: 200px; /* Offset for h1 width to maintain true center */
         }
         ul {
           display: flex;
-          gap: 4rem; /* Increased from 2rem */
+          gap: 2rem;
           list-style: none;
           padding: 0;
           margin: 0;
