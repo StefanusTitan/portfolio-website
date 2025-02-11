@@ -9,9 +9,6 @@ const Header = () => {
   return (
     <header className="header">
       <div className="container">
-        <h1>
-          <FaCode style={{ marginRight: '0.5rem' }} /> My Portfolio
-        </h1>
         <nav>
           <ul>
             <li className="nav-item">
@@ -35,30 +32,24 @@ const Header = () => {
       <style jsx>{`
         header {
           background: var(--header-bg);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // added for a modern look
           width: 100%;
         }
         .container {
           display: flex;
-          justify-content: space-between;
           align-items: center;
-          max-width: 1200px;
-          width: 100%;
+          justify-content: space-between; // modern, clean alignment
+          width: 50%;
           margin: 0 auto;
-          padding: 0 1rem;
-        }
-        h1 {
-          margin: 0;
-          color: var(--text);
-          display: flex;
-          align-items: center;
+          padding: 0 2rem;
         }
         nav {
           display: flex;
-          justify-content: center;
+          justify-content: flex-start; // changed alignment to the left
         }
         ul {
           display: flex;
-          gap: 2rem;
+          gap: 2rem; // reduced gap between nav items
           list-style: none;
           padding: 0;
           margin: 0;
@@ -79,7 +70,7 @@ const Header = () => {
         nav :global(a) {
           color: var(--text);
           text-decoration: none;
-          padding: 0.5rem 1rem; /* Added padding to increase clickable area */
+          padding: 0.5rem 0; /* removed left and right padding */
           display: block; /* Makes the entire area clickable */
         }
         nav :global(a:hover) {
@@ -90,7 +81,7 @@ const Header = () => {
           background: none;
           border: none;
           cursor: pointer;
-          padding: 0.5rem;
+          padding: 0.5rem 0;
           color: var(--text);
           font-size: 1.2rem;
           transition: transform 0.2s ease;

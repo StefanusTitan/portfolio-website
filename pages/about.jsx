@@ -35,11 +35,12 @@ const About = () => {
         I have also taken courses in Java, Python, Go, and SQL. Other than that, I also have taken courses in soft skills like 
         effective communication, team collaboration, adaptability, problem-solving, and time management.
         </p>
-        <h2>Interests</h2>
+        <h2>Other Interests</h2>
         <p style={{ textAlign: "justify" }}>
-          I am passionate about web development, Artificial Intelligence, Machine Learning, and Deep Learning. 
-          I am always looking for new challenges and opportunities to grow as a developer. 
-          I am also interested in learning new technologies and frameworks to stay current in the ever changing landscape of web development and AI.
+          <ul>
+            <li>PC Hardware Enthusiast</li>
+            <li>Playing video games</li>
+          </ul>
         </p>
         <h2>Skills</h2>
         <ul>

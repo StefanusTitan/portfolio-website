@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <div className={styles.container}>
       <Header />
-      <main className={styles.main}>
+      <main className={`${styles.main} ${styles.contentWidth}`}>
         <h1 className={styles.title}>Welcome to My Portfolio</h1>
         <p className={styles.description}>
           Hey there! I'm Stefanus Titan Elianto — feel free to call me Titan! I'm a
