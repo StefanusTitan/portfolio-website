@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   padding: 2rem;
-  max-width: 1200px;
+  max-width: 1400px;  /* Increased from 1200px */
   margin: 0 auto;
   background-color: var(--background); /* Use theme background */
   font-family: "Roboto", sans-serif;
@@ -19,9 +19,10 @@
 .featuredProjects {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
-  width: 100%;
-  padding: 2rem;
+  gap: 1.5rem;
+  width: 50vw;
+  padding: 1rem;
+  margin: 0 auto;
 }
 
 .featuredProjects h2 {
@@ -79,14 +80,31 @@
 
 .container {
   min-height: 100vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   position: relative;
   background-color: var(--background);
+  margin: 0;
+  padding: 0;
 }
 
 .main {
   flex: 1;
   overflow-y: auto;
-  padding: 2rem 5rem;
+  padding: 2rem 2rem;
+  width: 100vw;
+  margin: 0;
+}
+
+.title {
+  width: 50vw;
+  text-align: justify;
+  margin: 0 auto 1rem;
+}
+
+.description {
+  width: 50vw;
+  text-align: justify;
+  margin: 0 auto 2rem;
 }

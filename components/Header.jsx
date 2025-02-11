@@ -41,9 +41,9 @@ const Header = () => {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 0;
+          width: 100%;
+          margin: 0;
+          padding: 0 2rem;
         }
         h1 {
           margin: 0;

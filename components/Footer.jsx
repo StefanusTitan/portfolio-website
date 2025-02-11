@@ -35,16 +35,13 @@ const Footer = () => {
           background: var(--card-bg);
           color: var(--text);
           text-align: center;
-          padding: 1rem 2rem;
-          border-top: none; /* Remove the white line */
-          position: fixed;
-          bottom: 0;
-          left: 0;
+          padding: 1rem 0;
           width: 100%;
         }
         .container {
-          max-width: 1200px;
-          margin: 0 auto;
+          width: 100%;
+          margin: 0;
+          padding: 0 2rem;
         }
         .social-links {
           margin-top: 0.5rem;
