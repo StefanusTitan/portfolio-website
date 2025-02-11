@@ -36,7 +36,7 @@ const Footer = () => {
           color: var(--text);
           text-align: center;
           padding: 1rem 2rem;
-          border-top: 1px solid var(--shadow);
+          border-top: none; /* Remove the white line */
           position: fixed;
           bottom: 0;
           left: 0;
