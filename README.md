@@ -35,13 +35,13 @@ To get a local copy up and running, follow these simple steps:
 3. **Install dependencies**
 
    ```bash
-   npm install
+   yarn install
    ```
 
 4. **Run the development server**
 
    ```bash
-   npm run dev
+   yarn dev
    ```
 
 5. **Open your browser and visit**
