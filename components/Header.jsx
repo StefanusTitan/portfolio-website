@@ -41,7 +41,7 @@ const Header = () => {
           justify-content: space-between; // modern, clean alignment
           width: 50%;
           margin: 0 auto;
-          padding: 0 2rem;
+          padding: 0 1rem;
         }
         nav {
           display: flex;

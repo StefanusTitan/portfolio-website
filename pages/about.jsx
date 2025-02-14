@@ -28,6 +28,7 @@ const About = () => {
           changing landscape of web development and in the exponential development of AI. 
           I am excited to see where my journey in tech will take me next!
         </p>
+        
         <h2>Education</h2>
         <p style={{ textAlign: "justify" }}>
         I am currently an undegraduate in Institut Teknologi Harapan Bangsa (ITHB) pursuing a degree in Informatics with a GPA of 3.74 
@@ -36,12 +37,11 @@ const About = () => {
         effective communication, team collaboration, adaptability, problem-solving, and time management.
         </p>
         <h2>Other Interests</h2>
-        <p style={{ textAlign: "justify" }}>
           <ul>
             <li>PC Hardware Enthusiast</li>
             <li>Playing video games</li>
           </ul>
-        </p>
+  
         <h2>Skills</h2>
         <ul>
           <li>JavaScript (React, Next.js, Vue)</li>
