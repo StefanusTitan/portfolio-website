@@ -1,0 +1,338 @@
+.page {
+  grid-column: 2;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.breadcrumb {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.breadcrumb a {
+  color: var(--text);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 2rem;
+  align-items: center;
+  margin: 0 0 2rem 0;
+}
+
+.heroImage {
+  width: 100%;
+  height: 320px;
+  border-radius: 12px;
+  background: #000;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  border: 1px solid var(--border-color);
+}
+
+/* Video container for hero demos */
+.heroMedia {
+  width: 100%;
+  height: 320px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  border: 1px solid var(--border-color);
+}
+
+.heroVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.title {
+  margin: 0 0 0.5rem 0;
+  font-size: 2.2rem;
+  line-height: 1.25;
+}
+
+.subtitle {
+  margin: 0 0 1rem 0;
+  color: var(--text-secondary);
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.tag {
+  font-size: 0.85rem;
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+}
+
+.actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 8px;
+  border: 1px solid var(--accent);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.button.secondary {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border-color);
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  background: var(--accent-hover);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+.button.secondary:hover {
+  background: var(--card-bg);
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+.card h3 {
+  margin: 0 0 0.75rem 0;
+}
+
+.list {
+  margin: 0.25rem 0 0 1.1rem;
+}
+
+.back {
+  margin-top: 2rem;
+}
+
+/* Gallery styles */
+.gallery {
+  margin-top: 0.75rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.fullWidth {
+  grid-column: 1 / -1;
+}
+
+.thumb {
+  display: block;
+  padding: 0;
+  border: none;
+  background: transparent;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  transition: transform 220ms var(--ease), box-shadow 220ms var(--ease);
+  transform-origin: center;
+}
+
+.thumbImage {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.03);
+  transition: transform 350ms cubic-bezier(.2,.8,.2,1), filter 220ms var(--ease);
+  filter: saturate(0.95) contrast(0.98);
+}
+
+/* Ensure video thumbnails use the same sizing / object-fit */
+.thumb video.thumbImage {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  display: block;
+}
+
+.thumb:hover,
+.thumb:focus {
+  transform: translateY(-6px) scale(1.01);
+  outline: none;
+}
+
+.thumb:hover .thumbImage,
+.thumb:focus .thumbImage {
+  transform: scale(1.1);
+  filter: saturate(1.08) contrast(1);
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.6);
+  animation: fadeIn 180ms ease;
+  z-index: 2000;
+}
+
+.lightboxContent {
+  max-width: 92vw;
+  max-height: 86vh;
+  background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(255,255,255,0.02));
+  border-radius: 12px;
+  padding: 1rem;
+  position: relative;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+  transform: translateY(6px) scale(0.98);
+  animation: popIn 220ms cubic-bezier(.2,.9,.3,1) forwards;
+}
+
+.lightboxImage {
+  display: block;
+  max-width: 86vw;
+  max-height: 70vh;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+/* Lightbox video sizing */
+.lightboxVideo {
+  display: block;
+  max-width: 86vw;
+  max-height: 70vh;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 8px;
+  background: #000;
+}
+
+.lightboxCaption {
+  color: #fff;
+  text-align: center;
+  margin-top: 0.6rem;
+  font-size: 0.95rem;
+  /* Improve readability on top of images by providing a subtle, dark background */
+  background: rgba(0,0,0,0.65);
+  display: inline-block;
+  padding: 0.38rem 0.6rem;
+  border-radius: 8px;
+  max-width: 90%;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.45);
+}
+
+.lightboxClose {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  border: none;
+  background: #e74c3c; /* red */
+  color: #fff;
+  font-size: 1.05rem;
+  cursor: pointer;
+  padding: 0.35rem 0.6rem;
+  border-radius: 8px;
+  box-shadow: 0 6px 14px rgba(231,76,60,0.25);
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.lightboxClose:hover,
+.lightboxClose:focus {
+  background: #c0392b;
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.lightboxNav {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.lightboxNav button {
+  border: none;
+  background: var(--card-bg);
+  color: var(--text);
+  padding: 0.45rem 0.7rem;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: translateY(12px) scale(0.96) }
+  to { opacity: 1; transform: translateY(0) scale(1) }
+}
+
+@media (max-width: 720px) {
+  .gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+  .thumbImage { height: 110px }
+}
+
+@media (max-width: 992px) {
+  .heroMedia {
+    height: 240px;
+  }
+}
+
+@media (max-width: 720px) {
+  .heroMedia {
+    height: 180px;
+  }
+}
+
+
+@media (max-width: 992px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+  .heroImage {
+    height: 240px;
+  }
+  .content {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,4 +1,3 @@
-import React from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa"; // Import icons
 
 const Footer = () => {
@@ -18,7 +17,10 @@ const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaGithub /> GitHub
+            <div className="footerIcon">
+              <FaGithub />
+              GitHub
+            </div>
           </a>
           <span>|</span>
           <a
@@ -26,7 +28,10 @@ const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaLinkedin /> LinkedIn
+            <div className="footerIcon">
+              <FaLinkedin />
+              LinkedIn
+            </div>
           </a>
         </div>
       </div>
@@ -59,6 +64,11 @@ const Footer = () => {
         }
         .social-links a:hover {
           color: #0070f3;
+        }
+        .footerIcon {
+          display: flex;
+          align-items: center;
+          gap: 0.2rem;
         }
       `}</style>
     </footer>

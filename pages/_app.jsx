@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { ThemeProvider } from '../context/ThemeContext';
 import { useTheme } from '../context/ThemeContext';
 import { useEffect } from 'react';
+import Layout from '../components/Layout';
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -24,7 +25,9 @@ function ThemedApp({ Component, pageProps }) {
       <Head>
         <title>Portfolio | Stefanus Titan</title>
       </Head>
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </>
   );
 }

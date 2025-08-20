@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { useTheme } from '../context/ThemeContext';
 import { FaMoon, FaSun } from 'react-icons/fa';
-import { FaCode } from 'react-icons/fa'; // Import the code icon
 
 const Header = () => {
   const { darkMode, toggleDarkMode } = useTheme();
@@ -35,17 +34,16 @@ const Header = () => {
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // added for a modern look
           width: 100%;
         }
-        .container {
-          display: flex;
-          align-items: center;
-          justify-content: space-between; // modern, clean alignment
-          width: 50%;
-          margin: 0 auto;
-          padding: 0 1rem;
-        }
         nav {
           display: flex;
           justify-content: flex-start; // changed alignment to the left
+        }
+        .container {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin: 0 auto;
+          padding: 0 1rem;
         }
         ul {
           display: flex;
