@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Head from "next/head";
+import Image from 'next/image';
 import styles from "../../styles/Project.module.css";
 
 const Project2 = () => {
@@ -10,8 +11,12 @@ const Project2 = () => {
     { src: "/images/todo/todo-3.png", alt: "ToDo app - About" },
   ];
   const [active, setActive] = useState(null);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+  // trigger mount animations
+  setMounted(true);
+
     const onKey = (e) => {
       if (e.key === "Escape") setActive(null);
       if (e.key === "ArrowRight" && active !== null) setActive((s) => (s + 1) % images.length);
@@ -33,13 +38,10 @@ const Project2 = () => {
           <Link href="/projects">← Back to Projects</Link>
         </div>
 
-        <section className={styles.hero}>
-          <div
-            className={styles.heroImage}
-            style={{ backgroundImage: "url('/images/todo.png')" }}
-            aria-label="ToDo app preview"
-            role="img"
-          />
+  <section className={`${styles.hero} ${mounted ? styles.heroEnter : ""}`}>
+          <div className={styles.heroImage} aria-label="ToDo app preview" role="img">
+            <Image src="/images/todo.png" alt="ToDo app preview" fill className={styles.heroImageInner} />
+          </div>
           <div>
             <h1 className={styles.title}>ToDo App</h1>
             <p className={styles.subtitle}>
@@ -53,13 +55,13 @@ const Project2 = () => {
               <span className={styles.tag}>Sequelize</span>
             </div>
             <div className={styles.actions}>
-              <a className={`${styles.button} ${styles.secondary}`} href="#" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a className={`${styles.button} ${styles.secondary}`} href="https://github.com/StefanusTitan/todo-app" target="_blank" rel="noopener noreferrer">GitHub</a>
             </div>
           </div>
         </section>
 
         <section className={styles.content}>
-          <article className={styles.card} id="overview">
+          <article className={`${styles.card} ${mounted ? styles.cardEnter : ""}`} id="overview" style={{ animationDelay: `80ms` }}>
             <h3>Overview</h3>
             <p>
               This To-Do app provides a simple, focused interface for creating, updating, and
@@ -68,7 +70,7 @@ const Project2 = () => {
             </p>
           </article>
 
-          <article className={styles.card} id="features">
+          <article className={`${styles.card} ${mounted ? styles.cardEnter : ""}`} id="features" style={{ animationDelay: `160ms` }}>
             <h3>Features</h3>
             <ul className={styles.list}>
               <li>User authentication and sessions</li>
@@ -78,7 +80,7 @@ const Project2 = () => {
             </ul>
           </article>
 
-          <article className={styles.card} id="stack">
+          <article className={`${styles.card} ${mounted ? styles.cardEnter : ""}`} id="stack" style={{ animationDelay: `240ms` }}>
             <h3>Tech Stack</h3>
             <ul className={styles.list}>
               <li>Next.js / React (frontend)</li>
@@ -88,7 +90,7 @@ const Project2 = () => {
             </ul>
           </article>
 
-          <article className={`${styles.card} ${styles.fullWidth}`} id="screenshots">
+          <article className={`${styles.card} ${styles.fullWidth} ${mounted ? styles.cardEnter : ""}`} id="screenshots" style={{ animationDelay: `320ms` }}>
             <h3>Screenshots</h3>
             <p className={styles.subtitle} style={{ marginTop: 4 }}>
               A preview of the app UI.
@@ -97,11 +99,13 @@ const Project2 = () => {
               {images.map((img, i) => (
                 <button
                   key={img.src}
-                  className={styles.thumb}
+                  className={`${styles.thumb} ${mounted ? styles.thumbEnter : ""}`}
                   onClick={() => setActive(i)}
                   aria-label={`Open image ${i + 1}`}
+                  style={{ animationDelay: `${i * 80}ms` }}
                 >
-                  <img src={img.src} alt={img.alt} className={styles.thumbImage} />
+                  {/* Provide explicit width/height so Next/Image doesn't try to use a fill layout here */}
+                  <Image src={img.src} alt={img.alt} className={styles.thumbImage} width={1200} height={800} />
                 </button>
               ))}
             </div>
@@ -115,7 +119,7 @@ const Project2 = () => {
               >
                 <div className={styles.lightboxContent} onClick={(e) => e.stopPropagation()}>
                   <button className={styles.lightboxClose} onClick={() => setActive(null)} aria-label="Close">✕</button>
-                  <img src={images[active].src} alt={images[active].alt} className={styles.lightboxImage} />
+                  <Image src={images[active].src} alt={images[active].alt} className={`${styles.lightboxImage} ${styles.lightboxImageAnimate}`} width={1024} height={768} />
                   <div className={styles.lightboxCaption}>{images[active].alt}</div>
                   <div className={styles.lightboxNav}>
                     <button onClick={() => setActive((s) => (s - 1 + images.length) % images.length)} aria-label="Previous">←</button>

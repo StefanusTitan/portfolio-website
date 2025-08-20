@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
 import Head from "next/head";
+import Image from 'next/image';
 import styles from "../../styles/Project.module.css";
 
 const Project1 = () => {
@@ -12,8 +13,12 @@ const Project1 = () => {
     { src: "/images/project1/rbf_recall_heatmap.png", alt: "RBF kernel recall heatmap" },
   ];
   const [active, setActive] = useState(null);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // trigger mount animations
+    setMounted(true);
+
     const onKey = (e) => {
       if (e.key === "Escape") setActive(null);
       if (e.key === "ArrowRight" && active !== null) setActive((s) => (s + 1) % images.length);
@@ -37,13 +42,10 @@ const Project1 = () => {
           <Link href="/projects">← Back to Projects</Link>
         </div>
 
-        <section className={styles.hero}>
-          <div
-            className={styles.heroImage}
-            style={{ backgroundImage: "url('/images/melanoma.png')" }}
-            aria-label="Melanoma project preview"
-            role="img"
-          />
+  <section className={`${styles.hero} ${mounted ? styles.heroEnter : ""}`}>
+          <div className={styles.heroImage} aria-label="Melanoma project preview" role="img">
+            <Image src="/images/melanoma.png" alt="Melanoma project preview" fill className={styles.heroImageInner} />
+          </div>
           <div>
             <h1 className={styles.title}>MobileNetV2 + SVM for Melanoma Classification</h1>
             <p className={styles.subtitle}>
@@ -62,7 +64,7 @@ const Project1 = () => {
         </section>
 
         <section className={styles.content}>
-          <article className={styles.card} id="overview">
+          <article className={`${styles.card} ${mounted ? styles.cardEnter : ""}`} id="overview" style={{ animationDelay: `80ms` }}>
             <h3>Overview</h3>
             <p>
               This project explores using <strong>MobileNetV2</strong> as a lightweight, high-quality
@@ -72,7 +74,7 @@ const Project1 = () => {
             </p>
           </article>
 
-          <article className={styles.card} id="approach">
+          <article className={`${styles.card} ${mounted ? styles.cardEnter : ""}`} id="approach" style={{ animationDelay: `160ms` }}>
             <h3>Approach</h3>
             <ul className={styles.list}>
               <li>Preprocess dermoscopic images (resize, normalize, augment).</li>
@@ -82,7 +84,7 @@ const Project1 = () => {
             </ul>
           </article>
 
-          <article className={styles.card} id="results">
+          <article className={`${styles.card} ${mounted ? styles.cardEnter : ""}`} id="results" style={{ animationDelay: `240ms` }}>
             <h3>Results</h3>
             <p>
               On the validation set, the pipeline achieved competitive accuracy and balanced metrics.
@@ -95,7 +97,7 @@ const Project1 = () => {
             </ul>
           </article>
 
-          <article className={styles.card} id="stack">
+          <article className={`${styles.card} ${mounted ? styles.cardEnter : ""}`} id="stack" style={{ animationDelay: `320ms` }}>
             <h3>Tech Stack</h3>
             <ul className={styles.list}>
               <li>Python, PyTorch/TensorFlow (for MobileNetV2)</li>
@@ -104,7 +106,7 @@ const Project1 = () => {
             </ul>
           </article>
 
-          <article className={`${styles.card} ${styles.fullWidth}`} id="gallery">
+          <article className={`${styles.card} ${styles.fullWidth} ${mounted ? styles.cardEnter : ""}`} id="gallery" style={{ animationDelay: `400ms` }}>
             <h3>Gallery</h3>
             <p className={styles.subtitle} style={{ marginTop: 4 }}>
               Visuals from experiments and UI mockups — click to enlarge.
@@ -113,11 +115,12 @@ const Project1 = () => {
               {images.map((img, i) => (
                 <button
                   key={img.src}
-                  className={styles.thumb}
+                  className={`${styles.thumb} ${mounted ? styles.thumbEnter : ""}`}
                   onClick={() => setActive(i)}
                   aria-label={`Open image ${i + 1}`}
+                  style={{ animationDelay: `${i * 80}ms` }}
                 >
-                  <img src={img.src} alt={img.alt} className={styles.thumbImage} />
+                  <Image src={img.src} alt={img.alt} className={styles.thumbImage} width={1200} height={800} />
                 </button>
               ))}
             </div>
@@ -131,7 +134,7 @@ const Project1 = () => {
               >
                 <div className={styles.lightboxContent} onClick={(e) => e.stopPropagation()}>
                   <button className={styles.lightboxClose} onClick={() => setActive(null)} aria-label="Close">✕</button>
-                  <img src={images[active].src} alt={images[active].alt} className={styles.lightboxImage} />
+                  <Image src={images[active].src} alt={images[active].alt} className={`${styles.lightboxImage} ${styles.lightboxImageAnimate}`} width={1024} height={768} />
                   <div className={styles.lightboxCaption}>{images[active].alt}</div>
                   <div className={styles.lightboxNav}>
                     <button onClick={() => setActive((s) => (s - 1 + images.length) % images.length)} aria-label="Previous">←</button>

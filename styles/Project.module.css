@@ -26,9 +26,11 @@
 }
 
 .heroImage {
+  position: relative;
   width: 100%;
-  height: 320px;
+  height: 100%;
   border-radius: 12px;
+  overflow: hidden;
   background: #000;
   background-size: cover;
   background-position: center;
@@ -36,10 +38,33 @@
   border: 1px solid var(--border-color);
 }
 
+/* Ensure Next/Image with `fill` and any inner img match the container rounding */
+.heroImageInner,
+.heroImage > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: inherit;
+  display: block;
+}
+
+/* Entrance animations */
+.heroEnter {
+  animation: heroFadeSlide 420ms cubic-bezier(.2,.9,.3,1) both;
+}
+
+@keyframes heroFadeSlide {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* Video container for hero demos */
 .heroMedia {
   width: 100%;
-  height: 320px;
+  height: 520px;
   border-radius: 12px;
   overflow: hidden;
   background: #000;
@@ -129,6 +154,16 @@
   box-shadow: 0 6px 18px rgba(0,0,0,0.06);
 }
 
+/* Card entrance animation */
+.cardEnter {
+  animation: cardPop 360ms cubic-bezier(.2,.9,.3,1) both;
+}
+
+@keyframes cardPop {
+  from { opacity: 0; transform: translateY(12px) scale(.995); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
 .card h3 {
   margin: 0 0 0.75rem 0;
 }
@@ -166,9 +201,20 @@
   transform-origin: center;
 }
 
+/* Per-thumb entrance: fade + slight rise */
+.thumbEnter {
+  animation: thumbUp 320ms cubic-bezier(.2,.8,.2,1) both;
+}
+
+@keyframes thumbUp {
+  from { opacity: 0; transform: translateY(12px) scale(.995); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
 .thumbImage {
+  position: relative;
   width: 100%;
-  height: 140px;
+  height: 320px;
   object-fit: cover;
   display: block;
   transform: scale(1.03);
@@ -179,7 +225,7 @@
 /* Ensure video thumbnails use the same sizing / object-fit */
 .thumb video.thumbImage {
   width: 100%;
-  height: 140px;
+  height: 320px;
   object-fit: cover;
   display: block;
 }
@@ -209,8 +255,9 @@
 }
 
 .lightboxContent {
+  z-index: 2;
   max-width: 92vw;
-  max-height: 86vh;
+  max-height: 92vh;
   background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(255,255,255,0.02));
   border-radius: 12px;
   padding: 1rem;
@@ -223,23 +270,37 @@
 .lightboxImage {
   display: block;
   max-width: 86vw;
-  max-height: 70vh;
+  max-height: 84vh;
   width: auto;
   height: auto;
   margin: 0 auto;
   border-radius: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+/* lightbox image subtle zoom-in */
+.lightboxImageAnimate {
+  animation: lbZoom 360ms cubic-bezier(.2,.8,.2,1) both;
+}
+
+@keyframes lbZoom {
+  from { opacity: 0; transform: scale(.98); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 /* Lightbox video sizing */
 .lightboxVideo {
   display: block;
   max-width: 86vw;
-  max-height: 70vh;
+  max-height: 84vh;
   width: auto;
   height: auto;
   margin: 0 auto;
   border-radius: 8px;
   background: #000;
+  position: relative;
+  z-index: 1;
 }
 
 .lightboxCaption {
@@ -269,6 +330,8 @@
   border-radius: 8px;
   box-shadow: 0 6px 14px rgba(231,76,60,0.25);
   transition: background-color 160ms ease, transform 160ms ease;
+  z-index: 4;
+  pointer-events: auto;
 }
 
 .lightboxClose:hover,
@@ -309,18 +372,29 @@
   .gallery {
     grid-template-columns: 1fr 1fr;
   }
-  .thumbImage { height: 110px }
+  .thumbImage { height: 220px }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .heroEnter,
+  .thumbEnter,
+  .cardEnter,
+  .lightboxImageAnimate {
+    animation: none !important;
+    transition: none !important;
+  }
 }
 
 @media (max-width: 992px) {
   .heroMedia {
-    height: 240px;
+    height: 420px;
   }
 }
 
 @media (max-width: 720px) {
   .heroMedia {
-    height: 180px;
+    height: 360px;
   }
 }
 
@@ -330,7 +404,7 @@
     grid-template-columns: 1fr;
   }
   .heroImage {
-    height: 240px;
+    height: 420px;
   }
   .content {
     grid-template-columns: 1fr;

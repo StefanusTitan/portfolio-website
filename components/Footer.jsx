@@ -1,4 +1,4 @@
-import { FaGithub, FaLinkedin } from "react-icons/fa"; // Import icons
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa"; // Import icons
 
 const Footer = () => {
   return (
@@ -12,6 +12,13 @@ const Footer = () => {
           Built with React & Next.js
         </p>
         <div className="social-links">
+          <a href="mailto:stefanustitan@example.com" className="email-link">
+            <div className="footerIcon">
+              <FaEnvelope />
+              stefanustitan@gmail.com
+            </div>
+          </a>
+          <span>|</span>
           <a
             href="https://github.com/StefanusTitan"
             target="_blank"

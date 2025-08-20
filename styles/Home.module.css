@@ -47,6 +47,64 @@
   flex-shrink: 0;
 }
 
+/* Animation keyframes */
+@keyframes fadeSlideLeft {
+  0% { opacity: 0; transform: translateX(-24px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeSlideRight {
+  0% { opacity: 0; transform: translateX(24px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeSlideUp {
+  0% { opacity: 0; transform: translateY(18px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Reusable animation classes */
+.animateFadeLeft {
+  animation-name: fadeSlideLeft;
+  animation-duration: 320ms;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(.2,.8,.2,1);
+}
+
+.animateFadeRight {
+  animation-name: fadeSlideRight;
+  animation-duration: 320ms;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(.2,.8,.2,1);
+}
+
+.animateFadeUp {
+  animation-name: fadeSlideUp;
+  animation-duration: 320ms;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(.2,.8,.2,1);
+}
+
+/* Staggered delays for sequencing */
+.delay1 { animation-delay: 80ms; }
+.delay2 { animation-delay: 240ms; }
+.delay3 { animation-delay: 420ms; }
+.delay4 { animation-delay: 580ms; }
+
+/* Ensure elements are initially hidden until animation plays */
+.animateFadeLeft, .animateFadeRight, .animateFadeUp {
+  opacity: 0;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .animateFadeLeft, .animateFadeRight, .animateFadeUp {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 .profileImage:hover {
   transform: translateY(-6px) rotate(-1deg) scale(1.02);
   box-shadow: 0 18px 36px rgba(16,24,40,0.2);

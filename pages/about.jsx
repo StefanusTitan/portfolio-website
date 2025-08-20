@@ -1,15 +1,47 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "../styles/Home.module.css";
 import Head from 'next/head';
 
 const About = () => {
+  const mainRef = useRef(null);
+  const [visibleSections, setVisibleSections] = useState([]);
+
+  useEffect(() => {
+    if (!mainRef.current) return;
+    const sectionNodes = Array.from(mainRef.current.querySelectorAll('section'));
+    if (sectionNodes.length === 0) return;
+
+    // initialize visibility array
+    setVisibleSections(prev => (prev.length === sectionNodes.length ? prev : Array(sectionNodes.length).fill(false)));
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const index = sectionNodes.indexOf(entry.target);
+          if (index !== -1) {
+            setVisibleSections(prev => {
+              const next = prev.slice();
+              next[index] = true;
+              return next;
+            });
+            observer.unobserve(entry.target);
+          }
+        }
+      });
+    }, { threshold: 0.18 });
+
+    sectionNodes.forEach(node => observer.observe(node));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className={styles.homeContainer}>
       <Head>
         <title>About | Stefanus Titan</title>
         <meta name="description" content="Learn more about Stefanus Titan: background, education, skills, and interests." />
       </Head>
-      <main className={styles.main}>
+      <main ref={mainRef} className={styles.main}>
         <h1 className={styles.title}>About Me</h1>
         <p>
           Welcome to my portfolio! I am a passionate developer with a background in web development,
@@ -17,8 +49,7 @@ const About = () => {
           programming languages and frameworks like Java, Python, Go, JavaScript, and SQL. I’m always
           looking for new challenges and opportunities to grow as a developer.
         </p>
-
-        <section>
+        <section className={visibleSections[0] ? `${styles.animateFadeUp} ${styles.delay1}` : ''}>
           <h2>Background</h2>
           <p style={{ textAlign: "justify" }}>
             I have worked on various projects that have honed my skills in front-end and back-end development.
@@ -32,7 +63,7 @@ const About = () => {
           </p>
         </section>
 
-        <section>
+        <section className={visibleSections[1] ? `${styles.animateFadeUp} ${styles.delay2}` : ''}>
           <h2>Education</h2>
           <p style={{ textAlign: "justify" }}>
             I am currently a fresh graduate from Institut Teknologi Harapan Bangsa (ITHB) with a degree in
@@ -43,7 +74,7 @@ const About = () => {
           </p>
         </section>
 
-        <section>
+        <section className={visibleSections[2] ? `${styles.animateFadeUp} ${styles.delay3}` : ''}>
           <h2>Other Interests</h2>
           <ul>
             <li>PC Hardware Enthusiast</li>
@@ -51,7 +82,7 @@ const About = () => {
           </ul>
         </section>
 
-        <section>
+        <section className={visibleSections[3] ? `${styles.animateFadeUp} ${styles.delay4}` : ''}>
           <h2>Skills</h2>
           <ul>
             <li>JavaScript (React, Next.js, Vue)</li>
@@ -68,7 +99,7 @@ const About = () => {
           </ul>
         </section>
 
-        <section>
+        <section className={visibleSections[4] ? `${styles.animateFadeUp} ${styles.delay1}` : ''}>
           <h2>Soft Skills</h2>
           <ul>
             <li>Effective Communication</li>

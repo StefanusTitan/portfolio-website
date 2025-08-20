@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Head from "next/head";
+import Image from 'next/image';
 import styles from "../../styles/Project.module.css";
 
 const Project3 = () => {
@@ -12,8 +13,12 @@ const Project3 = () => {
     { type: "video", src: "/videos/lifetimeart-mobile.mp4", alt: "LifetimeArt demo — mobile" },
   ];
   const [active, setActive] = useState(null);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // trigger mount animations
+    setMounted(true);
+
     const onKey = (e) => {
       if (e.key === "Escape") setActive(null);
       if (e.key === "ArrowRight" && active !== null) setActive((s) => (s + 1) % images.length);
@@ -35,7 +40,7 @@ const Project3 = () => {
           <Link href="/projects">← Back to Projects</Link>
         </div>
 
-        <section className={styles.hero}>
+  <section className={`${styles.hero} ${mounted ? styles.heroEnter : ""}`}>
           <div className={styles.heroMedia}>
             <video
               className={styles.heroVideo}
@@ -67,7 +72,7 @@ const Project3 = () => {
         </section>
 
         <section className={styles.content}>
-          <article className={styles.card} id="overview">
+          <article className={`${styles.card} ${mounted ? styles.cardEnter : ""}`} id="overview" style={{ animationDelay: `80ms` }}>
             <h3>Overview</h3>
             <p>
               A modern, polished website built to showcase home renovation and restoration work. The project
@@ -76,7 +81,7 @@ const Project3 = () => {
             </p>
           </article>
 
-          <article className={styles.card} id="features">
+          <article className={`${styles.card} ${mounted ? styles.cardEnter : ""}`} id="features" style={{ animationDelay: `160ms` }}>
             <h3>Highlights</h3>
             <ul className={styles.list}>
               <li>Modern, polished website that showcases home renovation and restoration work.</li>
@@ -90,7 +95,7 @@ const Project3 = () => {
             </ul>
           </article>
 
-          <article className={`${styles.card} ${styles.fullWidth}`} id="screenshots">
+          <article className={`${styles.card} ${styles.fullWidth} ${mounted ? styles.cardEnter : ""}`} id="screenshots" style={{ animationDelay: `240ms` }}>
             <h3>Demo</h3>
             <p className={styles.subtitle} style={{ marginTop: 4 }}>
               Click to open and play the demo media.
@@ -99,14 +104,15 @@ const Project3 = () => {
               {images.map((media, i) => (
                 <button
                   key={media.src}
-                  className={styles.thumb}
+                  className={`${styles.thumb} ${mounted ? styles.thumbEnter : ""}`}
                   onClick={() => setActive(i)}
                   aria-label={`Open media ${i + 1}`}
+                  style={{ animationDelay: `${i * 80}ms` }}
                 >
                   {media.type === 'video' ? (
                     <video src={media.src} muted playsInline className={styles.thumbImage} aria-hidden />
                   ) : (
-                    <img src={media.src} alt={media.alt} className={styles.thumbImage} />
+                    <Image src={media.src} alt={media.alt} className={styles.thumbImage} width={360} height={220} />
                   )}
                 </button>
               ))}
@@ -122,9 +128,9 @@ const Project3 = () => {
                 <div className={styles.lightboxContent} onClick={(e) => e.stopPropagation()}>
                   <button className={styles.lightboxClose} onClick={() => setActive(null)} aria-label="Close">✕</button>
                   {images[active].type === 'video' ? (
-                    <video src={images[active].src} controls autoPlay className={styles.lightboxVideo} />
+                    <video src={images[active].src} controls autoPlay className={`${styles.lightboxVideo} ${styles.lightboxImageAnimate}`} />
                   ) : (
-                    <img src={images[active].src} alt={images[active].alt} className={styles.lightboxImage} />
+                    <Image src={images[active].src} alt={images[active].alt} className={`${styles.lightboxImage} ${styles.lightboxImageAnimate}`} width={1024} height={768} />
                   )}
                   <div className={styles.lightboxCaption}>{images[active].alt}</div>
                   <div className={styles.lightboxNav}>

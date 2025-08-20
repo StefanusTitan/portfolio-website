@@ -21,7 +21,7 @@ const Projects = () => {
       title: "LifetimeArt — Pixel-perfect Figma → Web",
       description: "A take-home project implementing a pixel-perfect Figma design using React, TailwindCSS, and GSAP for smooth, performant animations and responsive layouts.",
       link: "/projects/project3",
-  preview: "/images/lifetimeart.png",
+      preview: "/images/lifetimeart.png",
     },
   ];
 
