@@ -31,12 +31,12 @@ const Header = () => {
       <style jsx>{`
         header {
           background: var(--header-bg);
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // added for a modern look
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
           width: 100%;
         }
         nav {
           display: flex;
-          justify-content: flex-start; // changed alignment to the left
+          justify-content: flex-start;
         }
         .container {
           display: flex;
@@ -47,7 +47,7 @@ const Header = () => {
         }
         ul {
           display: flex;
-          gap: 2rem; // reduced gap between nav items
+          gap: 2rem; /* reduced gap between nav items */
           list-style: none;
           padding: 0;
           margin: 0;
@@ -68,7 +68,7 @@ const Header = () => {
         nav :global(a) {
           color: var(--text);
           text-decoration: none;
-          padding: 0.5rem 0; /* removed left and right padding */
+          padding: 0.5rem 0; /* makes entire area clickable vertically */
           display: block; /* Makes the entire area clickable */
         }
         nav :global(a:hover) {
