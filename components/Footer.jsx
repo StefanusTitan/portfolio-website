@@ -9,7 +9,7 @@ const Footer = () => {
           reserved.
         </p>
         <p style={{ fontSize: "0.9rem", margin: "0.3rem 0" }}>
-          Built with React & Next.js
+          Built with React, Next.js, and MUI
         </p>
         <div className="social-links">
           <a href="mailto:stefanustitan@example.com" className="email-link">
