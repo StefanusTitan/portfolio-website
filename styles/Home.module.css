@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 1fr minmax(auto, 1200px) 1fr;
   background-color: var(--background);
-  font-family: "Roboto", sans-serif;
+  /* inherit global font (removed local Roboto override) */
 }
 
 .introduction {
