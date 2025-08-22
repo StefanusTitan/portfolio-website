@@ -1,6 +1,9 @@
 import styles from "../styles/Home.module.css";
 import Head from 'next/head';
 import Image from 'next/image';
+import Link from 'next/link';
+import Button from '@mui/material/Button';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const Home = () => {
   return (
@@ -13,7 +16,7 @@ const Home = () => {
       <main className={styles.main}>
         <div className={styles.hero}>
           <div className={`${styles.heroText} ${styles.animateFadeLeft} ${styles.delay1}`}>
-            <h1 className={styles.title}>Stefanus Titan — Portfolio</h1>
+            <h1 className={styles.title}>Stefanus Titan Elianto</h1>
             <p className={styles.description}>
               Hey there! I'm Stefanus Titan Elianto — feel free to call me Titan! I'm a
               curious developer who loves tinkering with new technologies, solving
@@ -56,9 +59,16 @@ const Home = () => {
           </ul>
 
           <div className={styles.viewMoreContainer}>
-            <a href="/projects" className={`${styles.viewMoreLink} ${styles.animateFadeUp} ${styles.delay4}`}>
-              View More Projects →
-            </a>
+            <Link href="/projects">
+              <Button
+                variant="contained"
+                size="large"
+                className={`${styles.viewMoreLink} ${styles.animateFadeUp} ${styles.delay4}`}
+                endIcon={<ArrowForwardIcon />}
+              >
+                View More Projects
+              </Button>
+            </Link>
           </div>
         </section>
       </main>
