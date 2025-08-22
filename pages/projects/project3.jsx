@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Head from "next/head";
 import Image from 'next/image';
+import Dialog from '@mui/material/Dialog';
+import DialogContent from '@mui/material/DialogContent';
+import IconButton from '@mui/material/IconButton';
 import styles from "../../styles/Project.module.css";
 
 const Project3 = () => {
@@ -118,28 +121,23 @@ const Project3 = () => {
               ))}
             </div>
 
-            {active !== null && (
-              <div
-                className={styles.lightbox}
-                role="dialog"
-                aria-modal="true"
-                onClick={() => setActive(null)}
-              >
-                <div className={styles.lightboxContent} onClick={(e) => e.stopPropagation()}>
-                  <button className={styles.lightboxClose} onClick={() => setActive(null)} aria-label="Close">✕</button>
-                  {images[active].type === 'video' ? (
+            <Dialog open={active !== null} onClose={() => setActive(null)} maxWidth="lg" fullWidth>
+              <DialogContent className={styles.lightboxContent} dividers>
+                <button className={styles.lightboxClose} onClick={() => setActive(null)} aria-label="Close">✕</button>
+                {active !== null && (
+                  images[active].type === 'video' ? (
                     <video src={images[active].src} controls autoPlay className={`${styles.lightboxVideo} ${styles.lightboxImageAnimate}`} />
                   ) : (
                     <Image src={images[active].src} alt={images[active].alt} className={`${styles.lightboxImage} ${styles.lightboxImageAnimate}`} width={1024} height={768} />
-                  )}
-                  <div className={styles.lightboxCaption}>{images[active].alt}</div>
-                  <div className={styles.lightboxNav}>
-                    <button onClick={() => setActive((s) => (s - 1 + images.length) % images.length)} aria-label="Previous">←</button>
-                    <button onClick={() => setActive((s) => (s + 1) % images.length)} aria-label="Next">→</button>
-                  </div>
+                  )
+                )}
+                <div className={styles.lightboxCaption}>{active !== null ? images[active].alt : ""}</div>
+                <div className={styles.lightboxNav}>
+                  <button onClick={() => setActive((s) => (s - 1 + images.length) % images.length)} aria-label="Previous">←</button>
+                  <button onClick={() => setActive((s) => (s + 1) % images.length)} aria-label="Next">→</button>
                 </div>
-              </div>
-            )}
+              </DialogContent>
+            </Dialog>
           </article>
         </section>
       </main>

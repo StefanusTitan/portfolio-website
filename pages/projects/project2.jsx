@@ -2,6 +2,11 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Head from "next/head";
 import Image from 'next/image';
+import ImageList from '@mui/material/ImageList';
+import ImageListItem from '@mui/material/ImageListItem';
+import Dialog from '@mui/material/Dialog';
+import DialogContent from '@mui/material/DialogContent';
+import IconButton from '@mui/material/IconButton';
 import styles from "../../styles/Project.module.css";
 
 const Project2 = () => {
@@ -95,39 +100,33 @@ const Project2 = () => {
             <p className={styles.subtitle} style={{ marginTop: 4 }}>
               A preview of the app UI.
             </p>
-            <div className={styles.gallery} role="list">
+            <ImageList className={styles.gallery} cols={3} gap={8}>
               {images.map((img, i) => (
-                <button
-                  key={img.src}
-                  className={`${styles.thumb} ${mounted ? styles.thumbEnter : ""}`}
-                  onClick={() => setActive(i)}
-                  aria-label={`Open image ${i + 1}`}
-                  style={{ animationDelay: `${i * 80}ms` }}
-                >
-                  {/* Provide explicit width/height so Next/Image doesn't try to use a fill layout here */}
-                  <Image src={img.src} alt={img.alt} className={styles.thumbImage} width={1200} height={800} />
-                </button>
+                <ImageListItem key={img.src} style={{ animationDelay: `${i * 80}ms` }}>
+                  <button
+                    className={`${styles.thumb} ${mounted ? styles.thumbEnter : ""}`}
+                    onClick={() => setActive(i)}
+                    aria-label={`Open image ${i + 1}`}
+                  >
+                    <Image src={img.src} alt={img.alt} className={styles.thumbImage} width={1200} height={800} />
+                  </button>
+                </ImageListItem>
               ))}
-            </div>
+            </ImageList>
 
-            {active !== null && (
-              <div
-                className={styles.lightbox}
-                role="dialog"
-                aria-modal="true"
-                onClick={() => setActive(null)}
-              >
-                <div className={styles.lightboxContent} onClick={(e) => e.stopPropagation()}>
-                  <button className={styles.lightboxClose} onClick={() => setActive(null)} aria-label="Close">✕</button>
+            <Dialog open={active !== null} onClose={() => setActive(null)} maxWidth="lg" fullWidth>
+              <DialogContent className={styles.lightboxContent} dividers>
+                <button className={styles.lightboxClose} onClick={() => setActive(null)} aria-label="Close">✕</button>
+                {active !== null && (
                   <Image src={images[active].src} alt={images[active].alt} className={`${styles.lightboxImage} ${styles.lightboxImageAnimate}`} width={1024} height={768} />
-                  <div className={styles.lightboxCaption}>{images[active].alt}</div>
-                  <div className={styles.lightboxNav}>
-                    <button onClick={() => setActive((s) => (s - 1 + images.length) % images.length)} aria-label="Previous">←</button>
-                    <button onClick={() => setActive((s) => (s + 1) % images.length)} aria-label="Next">→</button>
-                  </div>
+                )}
+                <div className={styles.lightboxCaption}>{active !== null ? images[active].alt : ""}</div>
+                <div className={styles.lightboxNav}>
+                  <button onClick={() => setActive((s) => (s - 1 + images.length) % images.length)} aria-label="Previous">←</button>
+                  <button onClick={() => setActive((s) => (s + 1) % images.length)} aria-label="Next">→</button>
                 </div>
-              </div>
-            )}
+              </DialogContent>
+            </Dialog>
           </article>
         </section>
       </main>
