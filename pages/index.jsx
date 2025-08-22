@@ -32,8 +32,8 @@ const Home = () => {
             src="/images/me.jpg"
             alt="Stefanus Titan"
             className={`${styles.profileImage} ${styles.animateFadeRight} ${styles.delay2}`}
-            width={260}
-            height={260}
+            width={320}
+            height={320}
           />
         </div>
 

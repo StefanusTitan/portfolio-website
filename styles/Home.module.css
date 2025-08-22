@@ -158,7 +158,7 @@
 }
 
 .projectLink:hover {
-  color: var(--accent-color, #4f46e5);
+  color: white;
   text-decoration: underline;
 }
 
