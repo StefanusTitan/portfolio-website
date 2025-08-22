@@ -32,8 +32,18 @@ const Header = () => {
         </button>
       </div>
       <style jsx>{`
+        :root { --header-height: 64px; }
+
         header {
+          position: fixed; /* keep header visible while scrolling */
+          top: 0;
+          left: 0;
+          right: 0;
+          height: var(--header-height);
+          z-index: 1000; /* sit above page content */
           background: var(--header-bg);
+          -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
           width: 100%;
         }
@@ -47,6 +57,7 @@ const Header = () => {
           justify-content: space-between;
           margin: 0 auto;
           padding: 0 1rem;
+          height: 100%; /* ensure inner container fills fixed header height */
         }
         ul {
           display: flex;

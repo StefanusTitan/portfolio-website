@@ -177,6 +177,8 @@
   background-color: var(--background);
   margin: 0;
   padding: 0;
+  /* Add top padding to account for the fixed header height to avoid content being hidden */
+  padding-top: var(--header-height, 64px);
 }
 
 /* content area that grows to fill available space so footer sits at bottom */
