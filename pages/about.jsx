@@ -67,10 +67,11 @@ const About = () => {
           <h2>Education</h2>
           <p style={{ textAlign: "justify" }}>
             I am currently a fresh graduate from Institut Teknologi Harapan Bangsa (ITHB) with a degree in
-            Informatics with a GPA of 3.76 and I have taken various courses in web development, project
-            management, Artificial Intelligence, Machine Learning, and Deep Learning. I have also taken courses
-            in Java, Python, Golang, and SQL. Other than that, I also have taken courses in soft skills like
-            effective communication, team collaboration, adaptability, problem-solving, and time management.
+            Informatics with a GPA of 3.76 and I have taken various courses in <strong>Web Development</strong>, <strong>Project
+            Management</strong>, <strong>Software Engineering</strong>, <strong>Artificial Intelligence</strong>, <strong>Machine Learning</strong>, and <strong>Deep Learning</strong>. 
+            I have also taken courses in <strong>Java</strong>, <strong>Python</strong>, <strong>Golang</strong>, and <strong>SQL</strong>. Other than that, I also have taken 
+            courses in soft skills like effective communication, team collaboration, adaptability, problem-solving, 
+            and time management.
           </p>
         </section>
 

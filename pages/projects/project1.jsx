@@ -8,6 +8,7 @@ import ImageListItem from '@mui/material/ImageListItem';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
+import MediaLightbox from '../../components/MediaLightbox';
 import styles from "../../styles/Project.module.css";
 
 const Project1 = () => {
@@ -130,19 +131,7 @@ const Project1 = () => {
               ))}
             </ImageList>
 
-            <Dialog open={active !== null} onClose={() => setActive(null)} maxWidth="lg" fullWidth>
-              <DialogContent className={styles.lightboxContent} dividers>
-                <button className={styles.lightboxClose} onClick={() => setActive(null)} aria-label="Close">✕</button>
-                {active !== null && (
-                  <Image src={images[active].src} alt={images[active].alt} className={`${styles.lightboxImage} ${styles.lightboxImageAnimate}`} width={1024} height={768} />
-                )}
-                <div className={styles.lightboxCaption}>{active !== null ? images[active].alt : ""}</div>
-                <div className={styles.lightboxNav}>
-                  <button onClick={() => setActive((s) => (s - 1 + images.length) % images.length)} aria-label="Previous">←</button>
-                  <button onClick={() => setActive((s) => (s + 1) % images.length)} aria-label="Next">→</button>
-                </div>
-              </DialogContent>
-            </Dialog>
+            <MediaLightbox images={images} active={active} setActive={setActive} />
           </article>
         </section>
       </main>

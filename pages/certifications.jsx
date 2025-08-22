@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import {
@@ -6,6 +6,7 @@ import {
   CardContent,
   CardActions,
   CardHeader,
+  CardMedia,
   Typography,
   Grid,
   Chip,
@@ -14,6 +15,7 @@ import {
   Box,
   CardActionArea
 } from '@mui/material';
+import MediaLightbox from '../components/MediaLightbox';
 
 const Certifications = () => {
   const certs = [
@@ -21,14 +23,14 @@ const Certifications = () => {
       title: 'Front End Development Libraries',
       issuer: 'freeCodeCamp',
       issued: 'Feb 2025',
-      skills: ['React.js', 'JavaScript'],
+      skills: ['React.js', 'JavaScript', 'Web Applications', 'Front-End Development'],
       link: 'https://www.freecodecamp.org/certification/stefanustitan/front-end-development-libraries',
     },
     {
       title: 'Machine Learning with Python',
       issuer: 'freeCodeCamp',
       issued: 'Feb 2025',
-      skills: ['Analytical Skills', 'scikit-learn', 'Python', 'TensorFlow'],
+      skills: ['Analytical Skills', 'scikit-learn', 'Python', 'TensorFlow' , 'Machine Learning', 'Deep Learning', 'AI'],
       link: 'https://www.freecodecamp.org/certification/stefanustitan/machine-learning-with-python-v7',
     },
     {
@@ -43,6 +45,7 @@ const Certifications = () => {
       issuer: 'SAP University Alliance Program at ITHB Career Resource Center',
       issued: 'May 2024',
       skills: ['SAP S/4HANA', 'Configuration', 'ERP'],
+      media: '/images/certifications/SAPConfig.png'
     },
     {
       title: 'Certiplus Program',
@@ -56,9 +59,19 @@ const Certifications = () => {
       title: 'SAP Introduction to S/4HANA using Global Bike',
       issuer: 'SAP University Alliance Program at ITHB Career Resource Center',
       issued: 'Nov 2023',
-      skills: ['SAP S/4HANA', 'Business Processes'],
+  skills: ['SAP S/4HANA', 'Business Processes'],
+  media: '/images/certifications/SAPIntro.png'
     },
   ];
+
+  // build list of media items (images/videos) for the lightbox
+  const mediaItems = certs.filter((c) => c.media).map((c) => ({
+    src: c.media,
+    alt: `${c.title} - ${c.issuer}`,
+    type: 'image',
+  }));
+
+  const [active, setActive] = useState(null);
 
   return (
     <div className={styles.homeContainer}>
@@ -89,6 +102,23 @@ const Certifications = () => {
                       </Typography>
                     }
                   />
+                  {c.media && (
+                    <CardActionArea
+                      onClick={() => {
+                        const idx = mediaItems.findIndex((m) => m.src === c.media);
+                        if (idx >= 0) setActive(idx);
+                      }}
+                      sx={{ cursor: 'pointer' }}
+                    >
+                      <CardMedia
+                        component="img"
+                        height="140"
+                        image={c.media}
+                        alt={`${c.title} image`}
+                        sx={{ objectFit: 'contain' }}
+                      />
+                    </CardActionArea>
+                  )}
                   <CardContent sx={{ flexGrow: 1 }}>
                     <Typography variant="caption" sx={{ display: 'block', mb: 1, color: 'var(--text-secondary)' }}>
                       {c.issued}
@@ -127,6 +157,7 @@ const Certifications = () => {
             ))}
           </Grid>
         </section>
+        <MediaLightbox images={mediaItems} active={active} setActive={setActive} />
       </main>
     </div>
   );
