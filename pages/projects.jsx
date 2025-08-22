@@ -15,7 +15,7 @@ const Projects = () => {
       title: "ToDo App",
       description: "A full-stack To-Do application for creating and managing tasks with user accounts and persistence.",
       link: "/projects/project2",
-      preview: "/images/todo.png",
+      preview: "/images/todo.jpg",
     },
     {
       title: "LifetimeArt — Pixel-perfect Figma → Web",

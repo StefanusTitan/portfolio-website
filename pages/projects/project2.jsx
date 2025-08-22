@@ -45,7 +45,7 @@ const Project2 = () => {
 
   <section className={`${styles.hero} ${mounted ? styles.heroEnter : ""}`}>
           <div className={styles.heroImage} aria-label="ToDo app preview" role="img">
-            <Image src="/images/todo.png" alt="ToDo app preview" fill className={styles.heroImageInner} />
+            <Image src="/images/todo.jpg" alt="ToDo app preview" fill className={styles.heroImageInner} />
           </div>
           <div>
             <h1 className={styles.title}>ToDo App</h1>
