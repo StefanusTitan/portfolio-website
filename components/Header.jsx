@@ -42,7 +42,7 @@ const Header = () => {
           height: var(--header-height);
           z-index: 1000; /* sit above page content */
           background: var(--header-bg);
-          -webkit-backdrop-filter: blur(6px);
+          -webkit-backdrop-filter: blur(24px);
           backdrop-filter: blur(6px);
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
           width: 100%;
