@@ -4,17 +4,16 @@ import Head from "next/head";
 import Image from 'next/image';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
-import Dialog from '@mui/material/Dialog';
-import DialogContent from '@mui/material/DialogContent';
-import IconButton from '@mui/material/IconButton';
 import MediaLightbox from '../../components/MediaLightbox';
 import styles from "../../styles/Project.module.css";
 
 const Project2 = () => {
   const images = [
-    { src: "/images/todo/todo-1.png", alt: "ToDo app - Profile" },
-    { src: "/images/todo/todo-2.png", alt: "ToDo app - Login" },
-    { src: "/images/todo/todo-3.png", alt: "ToDo app - About" },
+    { src: "/images/todo/todo-1.png", alt: "ToDo app - Login" },
+    { src: "/images/todo/todo-2.png", alt: "ToDo app - Register" },
+    { src: "/images/todo/todo-3.png", alt: "ToDo app - Home" },
+    { src: "/images/todo/todo-4.png", alt: "ToDo app - About" },
+    { src: "/images/todo/todo-5.png", alt: "ToDo app - Profile" },
   ];
   const [active, setActive] = useState(null);
   const [mounted, setMounted] = useState(false);
