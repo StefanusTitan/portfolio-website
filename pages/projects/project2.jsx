@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Head from "next/head";
 import Image from 'next/image';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import MediaLightbox from '../../components/MediaLightbox';
 import styles from "../../styles/Project.module.css";
 
@@ -17,6 +19,8 @@ const Project2 = () => {
   ];
   const [active, setActive] = useState(null);
   const [mounted, setMounted] = useState(false);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   useEffect(() => {
   // trigger mount animations
@@ -100,7 +104,7 @@ const Project2 = () => {
             <p className={styles.subtitle} style={{ marginTop: 4 }}>
               A preview of the app UI.
             </p>
-            <ImageList className={styles.gallery} cols={3} gap={8}>
+            <ImageList className={styles.gallery} cols={isMobile ? 1 : 3} gap={8}>
               {images.map((img, i) => (
                 <ImageListItem key={img.src} style={{ animationDelay: `${i * 80}ms` }}>
                   <button

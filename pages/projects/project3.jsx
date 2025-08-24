@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Head from "next/head";
 import Image from 'next/image';
-import Dialog from '@mui/material/Dialog';
-import DialogContent from '@mui/material/DialogContent';
-import IconButton from '@mui/material/IconButton';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import MediaLightbox from '../../components/MediaLightbox';
 import styles from "../../styles/Project.module.css";
 
@@ -18,6 +17,8 @@ const Project3 = () => {
   ];
   const [active, setActive] = useState(null);
   const [mounted, setMounted] = useState(false);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   useEffect(() => {
     // trigger mount animations
@@ -104,7 +105,7 @@ const Project3 = () => {
             <p className={styles.subtitle} style={{ marginTop: 4 }}>
               Click to open and play the demo media.
             </p>
-            <div className={styles.gallery} role="list">
+            <div className={styles.gallery} role="list" style={isMobile ? { gridTemplateColumns: '1fr' } : undefined}>
               {images.map((media, i) => (
                 <button
                   key={media.src}

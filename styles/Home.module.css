@@ -264,10 +264,26 @@
   
   .title {
     font-size: 2rem;
+    text-align: center; /* Center titles on mobile */
   }
   
+  .description {
+    text-align: center; /* Center descriptive text on mobile */
+  }
+
   .projectPreview {
     height: 180px;
+  }
+
+  /* Center each project card and its inner text on mobile */
+  .projectItem {
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .projectContent {
+    text-align: center;
   }
 }
 

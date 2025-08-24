@@ -85,10 +85,30 @@ const Certifications = () => {
         <p className={styles.description}>Selected certificates and courses I have completed.</p>
 
         <section>
-          <Grid container spacing={3} justifyContent="flex-start">
+          <Grid 
+            container 
+            spacing={3} 
+            justifyContent={{ xs: 'center', md: 'flex-start' }}
+          >
             {certs.map((c, idx) => (
-              <Grid item xs={12} sm={6} md={4} key={idx} sx={{ display: 'flex', justifyContent: 'center' }}>
-                <Card sx={{ width: 320, maxWidth: '100%', display: 'flex', flexDirection: 'column', backgroundColor: 'var(--card-bg)' }}>
+              <Grid 
+                item 
+                xs={12} 
+                sm={6} 
+                md={4} 
+                key={idx} 
+                sx={{ display: 'flex', justifyContent: 'center' }}
+              >
+                <Card 
+                  sx={{ 
+                    width: 320, 
+                    maxWidth: '100%', 
+                    display: 'flex', 
+                    flexDirection: 'column', 
+                    backgroundColor: 'var(--card-bg)',
+                    textAlign: { xs: 'center', md: 'left' }
+                  }}
+                >
                   
                   <CardHeader
                     title={
@@ -119,18 +139,18 @@ const Certifications = () => {
                       />
                     </CardActionArea>
                   )}
-                  <CardContent sx={{ flexGrow: 1 }}>
+          <CardContent sx={{ flexGrow: 1 }}>
                     <Typography variant="caption" sx={{ display: 'block', mb: 1, color: 'var(--text-secondary)' }}>
                       {c.issued}
                     </Typography>
                     {c.description && (
-                      <Typography variant="body2" sx={{ mb: 1, color: 'var(--text)' }}>
+            <Typography variant="body2" sx={{ mb: 1, color: 'var(--text)' }}>
                         {c.description}
                       </Typography>
                     )}
 
                     {c.skills && c.skills.length > 0 && (
-                      <Box sx={{ mt: 1, display: 'flex', gap: 1, flexWrap: 'wrap' }}>
+            <Box sx={{ mt: 1, display: 'flex', gap: 1, flexWrap: 'wrap', justifyContent: { xs: 'center', md: 'flex-start' } }}>
                         {c.skills.map((s, i) => (
                           <Chip
                             key={i}
