@@ -81,8 +81,8 @@ const Certifications = () => {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>Certifications</h1>
-        <p className={styles.description}>Selected certificates and courses I have completed.</p>
+      <h1 className={`${styles.title} ${styles.animateFadeUp}`} style={{ animationDelay: '80ms' }}>Certifications</h1>
+      <p className={`${styles.description} ${styles.animateFadeUp}`} style={{ animationDelay: '240ms' }}>Selected certificates and courses I have completed.</p>
 
         <section>
           <Grid 
@@ -100,6 +100,8 @@ const Certifications = () => {
                 sx={{ display: 'flex', justifyContent: 'center' }}
               >
                 <Card 
+                  className={styles.animateFadeUp}
+                  style={{ animationDelay: `${360 + idx * 120}ms` }}
                   sx={{ 
                     width: 320, 
                     maxWidth: '100%', 
@@ -139,18 +141,18 @@ const Certifications = () => {
                       />
                     </CardActionArea>
                   )}
-          <CardContent sx={{ flexGrow: 1 }}>
+                  <CardContent sx={{ flexGrow: 1 }}>
                     <Typography variant="caption" sx={{ display: 'block', mb: 1, color: 'var(--text-secondary)' }}>
                       {c.issued}
                     </Typography>
                     {c.description && (
-            <Typography variant="body2" sx={{ mb: 1, color: 'var(--text)' }}>
+                  <Typography variant="body2" sx={{ mb: 1, color: 'var(--text)' }}>
                         {c.description}
                       </Typography>
                     )}
 
                     {c.skills && c.skills.length > 0 && (
-            <Box sx={{ mt: 1, display: 'flex', gap: 1, flexWrap: 'wrap', justifyContent: { xs: 'center', md: 'flex-start' } }}>
+                      <Box sx={{ mt: 1, display: 'flex', gap: 1, flexWrap: 'wrap', justifyContent: { xs: 'center', md: 'flex-start' } }}>
                         {c.skills.map((s, i) => (
                           <Chip
                             key={i}

@@ -45,7 +45,7 @@ const Project3 = () => {
           <Link href="/projects">← Back to Projects</Link>
         </div>
 
-  <section className={`${styles.hero} ${mounted ? styles.heroEnter : ""}`}>
+        <section className={`${styles.hero} ${mounted ? styles.heroEnter : ""}`}>
           <div className={styles.heroMedia}>
             <video
               className={styles.heroVideo}

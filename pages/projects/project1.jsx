@@ -49,7 +49,7 @@ const Project1 = () => {
           <Link href="/projects">← Back to Projects</Link>
         </div>
 
-  <section className={`${styles.hero} ${mounted ? styles.heroEnter : ""}`}>
+        <section className={`${styles.hero} ${mounted ? styles.heroEnter : ""}`}>
           <div className={styles.heroImage} aria-label="Melanoma project preview" role="img">
             <Image src="/images/melanoma.png" alt="Melanoma project preview" fill className={styles.heroImageInner} />
           </div>
