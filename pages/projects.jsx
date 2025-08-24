@@ -32,15 +32,19 @@ const Projects = () => {
         <meta name="description" content="All projects by Stefanus Titan" />
       </Head>
       <main className={styles.main}>
-        <h1 className={styles.title}>Projects</h1>
-        <p className={styles.description}>
+        <h1 className={`${styles.title} ${styles.animateFadeUp}`}>Projects</h1>
+        <p className={`${styles.description} ${styles.animateFadeUp} ${styles.delay2}`}>
           A collection of things I’ve built and explored. Here are some highlights and experiments.
         </p>
 
         <section className={styles.featuredProjects}>
           <ul>
-            {projectList.map((project, index) => (
-              <li key={index} className={styles.projectItem}>
+            {projectList.map((project, index) => {
+              const directionClass = index % 2 === 0 ? styles.animateFadeLeft : styles.animateFadeRight;
+              const delayClasses = [styles.delay1, styles.delay2, styles.delay3, styles.delay4];
+              const delayClass = delayClasses[index % delayClasses.length];
+              return (
+              <li key={index} className={`${styles.projectItem} ${directionClass} ${delayClass}`}>
                 <div
                   className={styles.projectPreview}
                   style={{
@@ -67,7 +71,8 @@ const Projects = () => {
                   </div>
                 </div>
               </li>
-            ))}
+              );
+            })}
           </ul>
         </section>
       </main>

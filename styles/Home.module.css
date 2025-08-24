@@ -32,6 +32,17 @@
   margin-bottom: 2rem;
 }
 
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .profileImage {
+    margin: 0 auto;
+  }
+}
+
 .heroText {
   flex: 1 1 60%;
 }

@@ -46,7 +46,7 @@ const About = () => {
         <p>
           Welcome to my portfolio! I am a passionate developer with a background in web development,
           Artificial Intelligence, Machine Learning, and Deep Learning. I have experience in various
-          programming languages and frameworks like Java, Python, Go, JavaScript, and SQL. I’m always
+          programming languages and frameworks like Java, Python, Go, JavaScript, and SQL. I'm always
           looking for new challenges and opportunities to grow as a developer.
         </p>
         <section className={visibleSections[0] ? `${styles.animateFadeUp} ${styles.delay1}` : ''}>
