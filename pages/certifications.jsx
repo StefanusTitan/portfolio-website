@@ -166,9 +166,9 @@ const Certifications = () => {
                     )}
                   </CardContent>
                   {c.link ? (
-                    <CardActions>
+                    <CardActions sx={{ display: 'flex', justifyContent: 'flex-end'}}>
                       <MuiLink href={c.link} target="_blank" rel="noopener noreferrer" underline="none">
-                        <Button size="small" color="primary" variant="contained" sx={{ textTransform: 'none' }}>
+                        <Button size="small" color="primary" variant="text" sx={{ textTransform: 'none' }}>
                           View Certificate
                         </Button>
                       </MuiLink>

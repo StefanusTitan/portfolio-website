@@ -77,6 +77,20 @@ const Footer = () => {
           align-items: center;
           gap: 0.2rem;
         }
+        @media (max-width: 600px) {
+          .social-links {
+            flex-direction: column;
+            gap: 0.4rem;
+            align-items: center;
+          }
+          /* hide the visual separators when stacked */
+          .social-links span {
+            display: none;
+          }
+          .social-links a {
+            justify-content: center;
+          }
+        }
       `}</style>
     </footer>
   );

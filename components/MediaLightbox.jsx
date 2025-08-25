@@ -2,16 +2,24 @@ import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import Image from 'next/image';
 import styles from '../styles/Project.module.css';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import IconButton from '@mui/material/IconButton';
+import Close from '@mui/icons-material/Close';
 
 const MediaLightbox = ({ images, active, setActive }) => {
   if (!images) return null;
 
   const close = () => setActive(null);
+  const theme  = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
-    <Dialog open={active !== null} onClose={close} maxWidth="lg" fullWidth>
-      <DialogContent className={styles.lightboxContent} dividers>
-        <button className={styles.lightboxClose} onClick={close} aria-label="Close">✕</button>
+    <Dialog open={active !== null} onClose={close} maxWidth="lg" fullWidth fullScreen={isMobile}>
+      <DialogContent className={styles.lightboxContent}>
+        <IconButton color="error" onClick={close} aria-label="Close" sx={{position: 'absolute', right: 8, top: 8}}>
+          <Close />
+        </IconButton>
         {active !== null && (
           images[active].type === 'video' ? (
             <video
