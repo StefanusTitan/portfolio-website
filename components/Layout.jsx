@@ -1,20 +1,15 @@
-import Header from "./Header";
-import Footer from "./Footer";
-import styles from "../styles/Home.module.css";
+import SiteHeader from "./SiteHeader";
+import SiteFooter from "./SiteFooter";
 
-const Layout = ({ children }) => {
+export default function Layout({ children }) {
   return (
-    <div className={styles.container}>
-      <Header />
-
-      {/* content wrapper grows to push footer to the bottom when page content is short */}
-      <div className={styles.content}>
-        {children}
-      </div>
-
-      <Footer />
-    </div>
+    <>
+      <a href="#main" className="skip-link">
+        Skip to content
+      </a>
+      <SiteHeader />
+      <main id="main">{children}</main>
+      <SiteFooter />
+    </>
   );
-};
-
-export default Layout;
+}

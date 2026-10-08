@@ -1,0 +1,68 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 16px;
+  padding: clamp(16px, 4vw, 48px) var(--gutter) 16px;
+  background: color-mix(in srgb, var(--paper) 94%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.stage {
+  justify-self: center;
+  align-self: center;
+  max-width: 100%;
+  max-height: 100%;
+  min-height: 0;
+  display: grid;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.media {
+  max-width: min(100%, 1400px);
+  max-height: calc(100dvh - 140px);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px 24px;
+  width: 100%;
+  max-width: var(--page-max);
+  justify-self: center;
+}
+
+.alt {
+  font-size: 0.9375rem;
+}
+
+.position {
+  color: var(--graphite);
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.actions button {
+  padding: 8px 14px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  font-size: 0.9375rem;
+  background: var(--paper-raised);
+  transition: border-color 160ms ease;
+}
+
+.actions button:hover {
+  border-color: var(--ink);
+}

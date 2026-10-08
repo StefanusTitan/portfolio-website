@@ -2,19 +2,23 @@
 
 This is a modern portfolio website built using Next.js. The website showcases the portfolio owner's skills, projects, and background in a clean and responsive design.
 
-## Features
+## What's in it
 
-- Responsive design for optimal viewing on various devices
-- Smooth navigation with a functional header and footer
-- Sections for introduction, about, and projects
-- High-performance with optimized loading times
+- One page covering work at Duluin and GenTech AI, projects, background and contact
+- Interactive schematics of the systems built at Duluin, drawn from the data in `data/work.js`
+- Project pages generated from `data/projects.js`
+- Light and dark themes, following the system setting until toggled
 
 ## Technologies Used
 
-- Next.js
-- React
+- Next.js 16 (pages router) and React 19
+- Motion for animation, Lenis for smooth scrolling
+- Plus Jakarta Sans and JetBrains Mono via `next/font`
 - CSS Modules
-- JavaScript
+
+### Bundler
+
+`next build` uses Turbopack. `next dev` runs with `--webpack` for now, because Next.js 16.4.0's Turbopack dev server leaves page modules out of Pages Router client chunks, so pages fail to hydrate ([vercel/next.js#99789](https://github.com/vercel/next.js/issues/99789)). Once a fixed release is out, upgrade and drop `--webpack` from the `dev` script.
 
 ## Getting Started
 

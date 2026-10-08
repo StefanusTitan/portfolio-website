@@ -1,0 +1,12 @@
+.footer {
+  border-top: 1px solid var(--rule);
+  color: var(--graphite);
+  font-size: var(--step--1);
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-block: 24px 32px;
+}

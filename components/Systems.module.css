@@ -1,0 +1,178 @@
+.systems {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 28px;
+}
+
+.railTitle {
+  font-size: var(--step-0);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.tabs {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  margin-inline: calc(var(--gutter) * -1);
+  padding-inline: var(--gutter);
+  border-bottom: 1px solid var(--rule);
+}
+
+.tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tab {
+  position: relative;
+  flex: none;
+  display: grid;
+  text-align: left;
+  padding: 10px 12px 12px;
+  color: var(--graphite);
+  transition: color 160ms ease;
+}
+
+.tab:hover,
+.tab[aria-selected="true"] {
+  color: var(--ink);
+}
+
+.tabName {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.tabPeriod {
+  display: none;
+  font-size: var(--step--1);
+  color: var(--graphite);
+  font-variant-numeric: tabular-nums;
+}
+
+.marker {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: -1px;
+  height: 2px;
+  background: var(--signal);
+}
+
+.panel {
+  min-width: 0;
+  border-radius: 2px;
+}
+
+.panel:focus-visible {
+  outline-offset: 8px;
+}
+
+.detail {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 32px;
+}
+
+.detailHead {
+  display: grid;
+  gap: 10px;
+}
+
+.detailName {
+  font-size: var(--step-3);
+  line-height: 1.1;
+  font-weight: 680;
+  letter-spacing: -0.02em;
+}
+
+.summary {
+  max-width: 44ch;
+  font-size: var(--step-1);
+  line-height: 1.45;
+  color: var(--graphite);
+}
+
+.visual {
+  min-width: 0;
+}
+
+.body {
+  display: grid;
+  gap: 1em;
+  max-width: 66ch;
+}
+
+.meta {
+  display: grid;
+  gap: 10px;
+  padding-top: 20px;
+  border-top: 1px solid var(--rule);
+  font-size: 0.9375rem;
+}
+
+.meta > div {
+  display: grid;
+  grid-template-columns: 8.5rem 1fr;
+  gap: 16px;
+}
+
+.meta dt {
+  color: var(--graphite);
+}
+
+@media (max-width: 599px) {
+  .meta > div {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+@media (min-width: 960px) {
+  .systems {
+    grid-template-columns: minmax(0, 3.3fr) minmax(0, 8.7fr);
+    gap: 56px;
+    align-items: start;
+  }
+
+  .rail {
+    position: sticky;
+    top: calc(var(--header-h) + 32px);
+  }
+
+  .tabs {
+    display: grid;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    border-bottom: 0;
+    border-left: 1px solid var(--rule);
+  }
+
+  .tab {
+    padding: 9px 0 10px 20px;
+    gap: 1px;
+  }
+
+  .tabName {
+    font-size: var(--step-1);
+    font-weight: 560;
+    letter-spacing: -0.01em;
+  }
+
+  .tabPeriod {
+    display: block;
+  }
+
+  .marker {
+    left: -1px;
+    right: auto;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    height: auto;
+  }
+}

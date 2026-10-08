@@ -1,20 +1,15 @@
+/** @type {import('next').NextConfig} */
 module.exports = {
   reactStrictMode: true,
-  // Add ESLint build option from the docs. This lets production builds
-  // complete even if ESLint reports errors during build.
-  eslint: {
-    // Warning: This allows production builds to successfully complete even if
-    // your project has ESLint errors.
-    ignoreDuringBuilds: true,
-  },
-  images: {
-    domains: ["your-image-domain.com"], // Replace with your image domain if needed
-  },
-  webpack: (config) => {
-    config.module.rules.push({
-      test: /\.svg$/,
-      use: ["@svgr/webpack"],
-    });
-    return config;
+  // Old URLs from the previous version of the site.
+  async redirects() {
+    return [
+      { source: "/about", destination: "/#background", permanent: true },
+      { source: "/certifications", destination: "/#background", permanent: true },
+      { source: "/projects", destination: "/#projects", permanent: true },
+      { source: "/projects/project1", destination: "/projects/melanoma-classification", permanent: true },
+      { source: "/projects/project2", destination: "/projects/todo-app", permanent: true },
+      { source: "/projects/project3", destination: "/projects/lifetimeart", permanent: true },
+    ];
   },
 };

@@ -1,0 +1,26 @@
+.section {
+  padding-block: clamp(80px, 11vh, 136px);
+  border-top: 1px solid var(--rule);
+}
+
+.heading {
+  font-size: var(--step-4);
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: clamp(40px, 7vh, 72px);
+}
+
+/* Shared two-column rhythm: a narrow label column and a wide content column. */
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 20px;
+}
+
+@media (min-width: 960px) {
+  .split {
+    grid-template-columns: minmax(0, 3.3fr) minmax(0, 8.7fr);
+    gap: 56px;
+  }
+}

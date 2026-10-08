@@ -1,0 +1,22 @@
+.toggle {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  margin-right: -8px;
+  border-radius: 50%;
+  color: var(--ink);
+}
+
+.toggle:hover {
+  background: var(--signal-soft);
+}
+
+.half {
+  transform-origin: 12px 12px;
+  transition: transform 420ms var(--ease-out);
+}
+
+:global([data-theme="dark"]) .half {
+  transform: rotate(180deg);
+}

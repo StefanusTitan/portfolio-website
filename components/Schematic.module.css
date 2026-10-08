@@ -1,0 +1,133 @@
+.figure {
+  margin: 0;
+}
+
+.grid {
+  position: relative;
+  display: grid;
+  column-gap: 56px;
+  row-gap: 40px;
+  align-items: center;
+}
+
+.grid[data-vertical] {
+  column-gap: 48px;
+  row-gap: 36px;
+}
+
+.grid[data-vertical][data-cols="3"] {
+  column-gap: 26px;
+}
+
+.node {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 2px;
+  padding: 10px 12px 11px;
+  background: var(--paper-raised);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  min-width: 0;
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+}
+
+.sub {
+  font-size: 0.78125rem;
+  line-height: 1.35;
+  color: var(--graphite);
+}
+
+/* A decision: the diamond is the flowchart glyph for a branch. */
+.node[data-kind="gate"] .label::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 7px;
+  border: 1.5px solid currentColor;
+  transform: translateY(-1px) rotate(45deg);
+}
+
+/* Stored state: a double top rule, the shorthand for a table. */
+.node[data-kind="store"] {
+  border-top: 3px double var(--graphite);
+}
+
+/* Where the flow ends up. */
+.node[data-kind="end"] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+.node[data-kind="end"] .sub {
+  color: color-mix(in srgb, var(--paper) 72%, var(--ink));
+}
+
+.node[data-kind="reject"] {
+  border-color: var(--caution);
+}
+
+.node[data-kind="reject"] .label {
+  color: var(--caution);
+}
+
+.wires {
+  position: absolute;
+  inset: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.edge path {
+  fill: none;
+  stroke: var(--graphite);
+  stroke-width: 1.25;
+}
+
+.edge polygon {
+  fill: var(--graphite);
+}
+
+.edge text {
+  font-size: 11.5px;
+  fill: var(--graphite);
+  paint-order: stroke;
+  stroke: var(--paper);
+  stroke-width: 4px;
+  stroke-linejoin: round;
+}
+
+.edge[data-kind="no"] path {
+  stroke: var(--caution);
+}
+
+.edge[data-kind="no"] polygon,
+.edge[data-kind="no"] text {
+  fill: var(--caution);
+}
+
+.edge[data-kind="alt"] path {
+  stroke-dasharray: 4 4;
+}
+
+@media (max-width: 599px) {
+  .label {
+    font-size: 0.8125rem;
+  }
+
+  .sub {
+    font-size: 0.75rem;
+  }
+
+  .node {
+    padding: 8px 10px 9px;
+  }
+}

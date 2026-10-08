@@ -1,0 +1,68 @@
+.hero {
+  padding-top: calc(var(--header-h) + clamp(48px, 11vh, 132px));
+  padding-bottom: clamp(72px, 12vh, 140px);
+}
+
+.name {
+  /* Sized so "Titan Elianto" at full weight fills the column without overflowing. */
+  font-size: min(calc((100vw - 2 * var(--gutter)) / 5.75), 13rem);
+  line-height: 0.92;
+  letter-spacing: -0.035em;
+  font-weight: 780;
+  font-variation-settings: "wght" 780;
+}
+
+.line {
+  display: block;
+  white-space: nowrap;
+}
+
+.char {
+  display: inline-block;
+}
+
+.lede {
+  display: grid;
+  gap: 32px;
+  margin-top: clamp(36px, 6vh, 64px);
+}
+
+.description {
+  max-width: 38ch;
+  font-size: clamp(1.3125rem, 1rem + 1vw, 1.625rem);
+  line-height: 1.38;
+  letter-spacing: -0.01em;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+  align-content: flex-start;
+}
+
+.links a {
+  color: var(--graphite);
+  text-decoration-color: var(--rule);
+  transition:
+    color 160ms ease,
+    text-decoration-color 160ms ease;
+}
+
+.links a:hover {
+  color: var(--ink);
+  text-decoration-color: currentColor;
+}
+
+@media (min-width: 960px) {
+  .lede {
+    grid-template-columns: 7fr 5fr;
+    align-items: end;
+  }
+
+  .links {
+    flex-direction: column;
+    justify-self: end;
+    text-align: right;
+  }
+}

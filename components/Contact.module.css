@@ -1,0 +1,70 @@
+.contact {
+  padding-bottom: clamp(96px, 16vh, 180px);
+}
+
+.lead {
+  max-width: 40ch;
+  font-size: var(--step-1);
+  color: var(--graphite);
+}
+
+.email {
+  display: inline-block;
+  margin-top: 20px;
+  font-size: min(calc((100vw - 2 * var(--gutter)) / 13.5), 5.25rem);
+  line-height: 1.05;
+  font-weight: 650;
+  letter-spacing: -0.035em;
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 2px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition:
+    background-size 500ms var(--ease-out),
+    color 160ms ease;
+}
+
+.email:hover,
+.email:focus-visible {
+  color: var(--signal);
+  background-size: 100% 2px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 28px;
+  margin-top: 36px;
+}
+
+.actions a {
+  color: var(--graphite);
+  text-decoration-color: var(--rule);
+}
+
+.actions a:hover {
+  color: var(--ink);
+  text-decoration-color: currentColor;
+}
+
+.copy {
+  min-width: 9.5rem;
+  padding: 9px 16px;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  font-size: 0.9375rem;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease;
+}
+
+.copy:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.copy span {
+  display: inline-block;
+}
